@@ -1,0 +1,263 @@
+/* Global Variables for Colors */
+/* Global Variables for Colors */
+:root {
+    --cor-background: #212123;
+    --cor-reflexo: rgba(255, 255, 255, 0.4);
+    --cores-dancantes: #FFFF00, #3498db, #ff33cf;
+    --border-colors: #FFFF00, #3498db, #ff33cf;
+}
+
+/* Override Bootstrap bg-info */
+.bg-info {
+    background-color: rgba(41, 41, 41, 0.8) !important;
+    outline: none; /* Remove any outline */
+    border: 7px solid transparent; /* Initial transparent border */
+    border-radius: 5px;
+    animation: colorCycle 2s linear infinite; /* Add color cycling animation */
+}
+
+/* Animation for cycling colors */
+@keyframes colorCycle {
+    0% {
+        background-color: #FFFF00; /* Start with yellow */
+        border-color: #FFFF00; /* Border starts with yellow */
+    }
+    33% {
+        background-color: #3498db; /* Transition to blue */
+        border-color: #3498db;
+    }
+    66% {
+        background-color: #ff33cf; /* Transition to pink */
+        border-color: #ff33cf;
+    }
+    100% {
+        background-color: #FFFF00; /* Cycle back to yellow */
+        border-color: #FFFF00;
+    }
+}
+
+.text-error {
+    color: #dc3545; /* Bootstrap's 'danger' red color */
+    font-weight: bold;
+}
+
+.text-white {
+    color: #404040 !important; /* Slightly off-white */
+}
+
+.text-yellow {
+    color: #FFFF00 !important; /* Yellow text */
+}
+.text-primary {
+    color: #3498db !important; /* Custom blue */
+}
+
+.text-warning {
+    color: #ff33cf !important; /* Custom pink */
+}
+
+.text-light {
+    color: #FFFF00 !important; /* Custom yellow */
+}
+
+
+body {
+    background-color: #3d3d3d; /* Light gray background for the entire page */
+}
+
+/* Font-face and custom font styling */
+@font-face {
+    font-family: 'Cybrpnuk';
+    src: url('../css/fonts/moon_get-Heavy.otf') format('truetype'); /* Adjust the path based on your setup */
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Cybrpnuk', cursive;
+    background-image: url('../images/synthy.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #FFFF00;
+}
+
+.test-primary {
+    font-family: 'Cybrpnuk', cursive;
+    color: #00ffcc; /* Cyberpunk effect */
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #FFFF00 !important;
+    border-color: #FFFF00 !important;
+    color: #ff33cf !important;
+}
+
+.btn-primary:hover {
+    background-color: #ff33cf !important;
+    border-color: #ff33cf !important;
+    color: #FFFF00 !important;
+}
+
+.btn-secondary {
+    background-color: #FFFF00 !important;
+    border-color: #FFFF00 !important;
+    color: #3498db !important;
+}
+
+.btn-secondary:hover {
+    background-color: #3498db !important;
+    border-color: #3498db !important;
+    color: #FFFF00 !important;
+}
+
+/* ======== Popup Styles ======== */
+
+#open-popup {
+    width: 300px;
+    height: 50px;
+    border: none;
+    padding: 15px 32px;
+    font-size: 16px;
+    background: rgb(0, 140, 186);
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#open-popup:hover {
+    background-color: rgba(0, 140, 186, 0.9);
+}
+
+#popup-container {
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed; /* Changed to fixed to cover the whole screen */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 0.5s;
+    z-index: 1000; /* Ensures it appears above other content */
+}
+
+#popup-container .popup {
+    width: 500px;
+    height: 300px;
+    background: white;
+    color: #404040; /* Dark gray text for contrast */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+#popup-container input {
+    margin: 40px 0 20px;
+    font-size: 20px;
+    padding: 10px;
+    width: 80%;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+}
+
+#signin-popup-container .popup input,
+#signup-popup-container .popup input {
+    margin: 4px 0 20px;
+    font-size: 20px;
+    padding: 2px;
+    width: 80%;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    background-color: coral;
+    color: purple;
+}
+
+
+#popup-container button {
+    width: 50%;
+    height: 50px;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    background: rgb(0, 140, 186);
+    color: white;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border-radius: 5px;
+}
+
+#popup-container button:hover {
+    background-color: rgba(0, 140, 186, 0.9);
+}
+
+
+/* Popup container styles */
+.popup-container {
+    display: none; /* Initially hide the popup */
+    background: rgba(0, 0, 0, 0.6); /* Overlay color */
+    position: fixed; /* Fixed position */
+    top: 0; /* Full height */
+    left: 0; /* Full width */
+    right: 0; /* Full width */
+    bottom: 0; /* Full height */
+    transition: opacity 0.5s; /* Transition for fading effect */
+    z-index: 1000; /* Higher than other elements */
+    opacity: 0; /* Fully transparent initially */
+}
+
+/* Popup styles */
+.popup {
+    width: 400px; /* Adjust width as necessary */
+    margin: auto; /* Center horizontally */
+    position: absolute; /* Position relative to the container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset to truly center */
+    background: darkslateblue; /* Popup background */
+    padding: 20px; /* Padding inside the popup */
+    border-radius: 8px; /* Optional: rounded corners */
+    z-index: 1001; /* Ensure it is above the overlay */
+}
+
+/* Placeholder color for inputs in sign-in and sign-up popups */
+#signin-popup-container .popup input::placeholder,
+#signup-popup-container .popup input::placeholder {
+    color: darkslateblue; /* Light gray color for placeholder text */
+    opacity: 1; /* Ensures the color is applied, some browsers set opacity by default */
+}
+
+/*
+new additions below
+ */
+.window-container {
+    height: 80%; /* Set a smaller height for the window */
+    width: 60%; /* Adjust width as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Avoid horizontal scrolling */
+    position: relative; /* Ensure proper positioning */
+    padding: 20px; /* Padding for aesthetics */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.window-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.window-container::-webkit-scrollbar-track {
+    background: #343a40;
+}
+
+.window-container::-webkit-scrollbar-thumb {
+    background: #6c757d;
+    border-radius: 4px;
+}
+/* added stuff here, need comment for push
+
+ */
