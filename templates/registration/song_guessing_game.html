@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Guess the Song Game{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="window-container bg-info text-white rounded shadow-lg p-4">
+        <h3 class="text-center">Guess the Song!</h3>
+
+        {% if track_album_image %}
+        <div class="text-center">
+            <img src="{{ track_album_image }}" alt="Album Cover" class="rounded my-2" width="200">
+        </div>
+        {% endif %}
+
+        <div class="text-center my-3">
+            <audio id="track-preview" controls>
+                <source src="{{ track_preview_url }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <h4 class="mt-3">Choose the correct song title:</h4>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="d-flex flex-column align-items-center">
+                {% for option in options %}
+                <button type="submit" name="user_guess" value="{{ option.track_name }}" class="btn btn-outline-light mb-2" style="width: 80%;">
+                    {{ option.track_name }} - {{ option.track_artist }}
+                </button>
+                {% endfor %}
+            </div>
+        </form>
+
+        {% if feedback %}
+            <div class="alert mt-3 {% if feedback == 'Correct! You guessed the right song.' %}alert-success{% else %}alert-danger{% endif %}">
+                {{ feedback }}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
